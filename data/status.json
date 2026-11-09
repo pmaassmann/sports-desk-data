@@ -1,5 +1,5 @@
 {
- "runAt": "2026-11-09T16:07:14Z",
+ "runAt": "2026-11-09T16:07:50Z",
  "sources": {
   "raw_fc_dynasty": {
    "ok": true,
@@ -15,7 +15,7 @@
   },
   "raw_ktc": {
    "ok": false,
-   "error": "no player list on KTC page: HTTP 200, 2712817 bytes, title='Dynasty Rankings - KeepTradeCut', mentions playersArray=True cloudflare",
+   "error": "no player list on KTC page: HTTP 200, 2714242 bytes, title='Dynasty Rankings - KeepTradeCut', mentions playersArray=True cloudflare; context: 'script>\\n    var leagueType = 1;\\n    var playersArray = JSON.parse(document.getElementById(\\'ktc-players\\').textContent);\\n    var oneQBSC = false;\\n    var sfSC = false;\\n    var oneQBPlayers = [{\"playerNa'",
    "previousAsOf": null
   },
   "raw_sleeper_season": {
