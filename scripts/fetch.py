@@ -106,11 +106,25 @@ def fantasycalc(dynasty):
 
 # ------------------------------------------------------------- KeepTradeCut
 def ktc():
-    html = get("https://keeptradecut.com/dynasty-rankings?page=0&filters=QB|WR|RB|TE|RDP&format=1").text
-    m = re.search(r"var\s+playersArray\s*=\s*(\[.*?\]);", html, re.S)
-    if not m:
-        raise RuntimeError("playersArray not found on the KTC page (layout changed?)")
-    players = json.loads(m.group(1))
+    r = requests.get("https://keeptradecut.com/dynasty-rankings?page=0&filters=QB|WR|RB|TE|RDP&format=1",
+                     headers=dict(UA, Accept="text/html,application/xhtml+xml"), timeout=45)
+    html = r.text
+    players = None
+    for pat in (r"var\s+playersArray\s*=\s*(\[.*?\]);\s*\n", r"playersArray\s*=\s*(\[.*?\]);",
+                r"var\s+playersArray\s*=\s*(\[.*\])\s*;"):
+        m = re.search(pat, html, re.S)
+        if m:
+            try:
+                players = json.loads(m.group(1))
+                break
+            except ValueError:
+                continue
+    if not players:
+        title = re.search(r"<title>(.*?)</title>", html, re.S)
+        hint = "cloudflare" if "cf-" in html or "Just a moment" in html else ""
+        raise RuntimeError(f"no player list on KTC page: HTTP {r.status_code}, {len(html)} bytes, "
+                           f"title={title.group(1).strip()[:60] if title else None!r}, "
+                           f"mentions playersArray={'playersArray' in html} {hint}")
     rows, picks = [], []
     for p in players:
         one = p.get("oneQBValues") or {}
