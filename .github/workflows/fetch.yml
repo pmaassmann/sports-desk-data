@@ -1,0 +1,40 @@
+name: Daily ranking lists
+
+on:
+  schedule:
+    # 3:40 AM ET in winter (4:40 AM in summer); GitHub can start scheduled
+    # jobs late, so this leaves an hour before the 4:57 AM cloud pull.
+    - cron: "40 8 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Download lists
+        run: python scripts/fetch.py
+      - name: Commit changes
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "Daily ranking lists $(date -u +%Y-%m-%d)"
+            git push
+          fi
