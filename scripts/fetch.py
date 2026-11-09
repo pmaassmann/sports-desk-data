@@ -110,15 +110,18 @@ def ktc():
                      headers=dict(UA, Accept="text/html,application/xhtml+xml"), timeout=45)
     html = r.text
     players = None
-    for pat in (r"var\s+playersArray\s*=\s*(\[.*?\]);\s*\n", r"playersArray\s*=\s*(\[.*?\]);",
-                r"var\s+playersArray\s*=\s*(\[.*\])\s*;"):
-        m = re.search(pat, html, re.S)
-        if m:
-            try:
-                players = json.loads(m.group(1))
-                break
-            except ValueError:
-                continue
+    dec = json.JSONDecoder()
+    for m in re.finditer(r"playersArray\s*=\s*", html):
+        start = html.find("[", m.end() - 1)
+        if start < 0 or start - m.end() > 5:
+            continue
+        try:
+            obj, _ = dec.raw_decode(html, start)
+        except ValueError:
+            continue
+        if isinstance(obj, list) and len(obj) > 50:
+            players = obj
+            break
     if not players:
         title = re.search(r"<title>(.*?)</title>", html, re.S)
         hint = "cloudflare" if "cf-" in html or "Just a moment" in html else ""
