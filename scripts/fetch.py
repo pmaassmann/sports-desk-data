@@ -110,8 +110,15 @@ def ktc():
                      headers=dict(UA, Accept="text/html,application/xhtml+xml"), timeout=45)
     html = r.text
     players = None
+    tag = re.search(r'<script[^>]*id=["\']ktc-players["\'][^>]*>(.*?)</script>', html, re.S)
+    if tag:
+        try:
+            import html as htmllib
+            players = json.loads(htmllib.unescape(tag.group(1).strip()))
+        except ValueError:
+            players = None
     dec = json.JSONDecoder()
-    for m in re.finditer(r"playersArray\s*=\s*", html):
+    for m in ([] if players else re.finditer(r"(?:playersArray|oneQBPlayers)\s*=\s*", html)):
         start = html.find("[", m.end() - 1)
         if start < 0 or start - m.end() > 5:
             continue
