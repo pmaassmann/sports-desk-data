@@ -1,5 +1,5 @@
 {
- "runAt": "2026-11-09T16:05:43Z",
+ "runAt": "2026-11-09T16:06:35Z",
  "sources": {
   "raw_fc_dynasty": {
    "ok": true,
@@ -15,7 +15,7 @@
   },
   "raw_ktc": {
    "ok": false,
-   "error": "playersArray not found on the KTC page (layout changed?)",
+   "error": "no player list on KTC page: HTTP 200, 2709063 bytes, title='Dynasty Rankings - KeepTradeCut', mentions playersArray=True cloudflare",
    "previousAsOf": null
   },
   "raw_sleeper_season": {
