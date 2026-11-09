@@ -1,0 +1,40 @@
+{
+ "runAt": "2026-11-09T16:05:43Z",
+ "sources": {
+  "raw_fc_dynasty": {
+   "ok": true,
+   "count": 396,
+   "short": false,
+   "minimum": 380
+  },
+  "raw_fc_redraft": {
+   "ok": true,
+   "count": 195,
+   "short": false,
+   "minimum": 150
+  },
+  "raw_ktc": {
+   "ok": false,
+   "error": "playersArray not found on the KTC page (layout changed?)",
+   "previousAsOf": null
+  },
+  "raw_sleeper_season": {
+   "ok": true,
+   "count": 594,
+   "short": false,
+   "minimum": 400
+  },
+  "raw_espn_ros": {
+   "ok": true,
+   "count": 387,
+   "short": true,
+   "minimum": 400
+  },
+  "raw_fp_flex": {
+   "ok": true,
+   "count": 309,
+   "short": false,
+   "minimum": 200
+  }
+ }
+}
