@@ -127,7 +127,8 @@ def ktc():
         hint = "cloudflare" if "cf-" in html or "Just a moment" in html else ""
         raise RuntimeError(f"no player list on KTC page: HTTP {r.status_code}, {len(html)} bytes, "
                            f"title={title.group(1).strip()[:60] if title else None!r}, "
-                           f"mentions playersArray={'playersArray' in html} {hint}")
+                           f"mentions playersArray={'playersArray' in html} {hint}; context: "
+                           + "; ".join(repr(html[max(0, m.start()-40):m.start()+160]) for m in re.finditer("playersArray", html))[:900])
     rows, picks = [], []
     for p in players:
         one = p.get("oneQBValues") or {}
@@ -267,7 +268,7 @@ def main():
             prev = None
             if path.exists():
                 prev = json.loads(path.read_text()).get("asOf")
-            status["sources"][name] = {"ok": False, "error": str(exc)[:300], "previousAsOf": prev}
+            status["sources"][name] = {"ok": False, "error": str(exc)[:1200], "previousAsOf": prev}
             print(f"{name}: FAILED {exc}", file=sys.stderr)
             traceback.print_exc()
     (DATA / "status.json").write_text(json.dumps(status, indent=1) + "\n")
