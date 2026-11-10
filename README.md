@@ -1,7 +1,7 @@
 # sports-desk-data
 
 Daily ranking lists for the Sports Desk hub, downloaded by GitHub Actions
-every morning (about 3:40 AM ET) so the hub's 4:57 AM cloud pull can copy
+every morning (about 2:40 AM ET) so the hub's 4:57 AM cloud pull can copy
 them in without going through the laptop.
 
 | File | Source |

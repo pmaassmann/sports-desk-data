@@ -2,9 +2,9 @@ name: Daily ranking lists
 
 on:
   schedule:
-    # 3:40 AM ET in winter (4:40 AM in summer); GitHub can start scheduled
-    # jobs late, so this leaves an hour before the 4:57 AM cloud pull.
-    - cron: "40 8 * * *"
+    # 2:40 AM ET in winter (3:40 AM in summer); GitHub can start scheduled
+    # jobs late, so this leaves over an hour before the 4:57 AM cloud pull.
+    - cron: "40 7 * * *"
   workflow_dispatch: {}
 
 permissions:
