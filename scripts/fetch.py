@@ -210,7 +210,7 @@ def espn_ros():
     teams = {t["id"]: t for t in (season.get("settings") or {}).get("proTeams", [])}
     flt = {"players": {"filterStatus": {"value": ["FREEAGENT", "WAIVERS", "ONTEAM"]},
                        "filterSlotIds": {"value": [0, 2, 4, 6, 23]},
-                       "limit": 700, "sortPercOwned": {"sortPriority": 1, "sortAsc": False}}}
+                       "limit": 1000, "sortPercOwned": {"sortPriority": 1, "sortAsc": False}}}
     data = get(f"{ESPN}/segments/0/leaguedefaults/3?view=kona_player_info&scoringPeriodId={week}",
                headers={"x-fantasy-filter": json.dumps(flt)}).json()
     ros_id, week_id, act_id = f"10{SEASON}", f"11{SEASON}{week}", f"00{SEASON}"
@@ -221,9 +221,7 @@ def espn_ros():
         if not pos:
             continue
         st = {s.get("id"): s.get("appliedTotal") for s in p.get("stats", [])}
-        ros = st.get(ros_id)
-        if not ros:
-            continue
+        ros = st.get(ros_id) or 0  # keep injured / zero-projection players (the hub needs every rostered player)
         team = teams.get(p.get("proTeamId"), {})
         rows.append([p.get("fullName"), pos, (team.get("abbrev") or "FA").upper(),
                      round(ros, 1), round(st.get(week_id) or 0, 1), round(st.get(act_id) or 0, 1),
