@@ -1,15 +1,15 @@
 {
- "runAt": "2026-11-10T08:33:16Z",
+ "runAt": "2026-11-11T08:35:11Z",
  "sources": {
   "raw_fc_dynasty": {
    "ok": true,
-   "count": 397,
+   "count": 395,
    "short": false,
    "minimum": 380
   },
   "raw_fc_redraft": {
    "ok": true,
-   "count": 195,
+   "count": 196,
    "short": false,
    "minimum": 150
   },
@@ -21,7 +21,7 @@
   },
   "raw_sleeper_season": {
    "ok": true,
-   "count": 594,
+   "count": 595,
    "short": false,
    "minimum": 400
   },
@@ -33,7 +33,7 @@
   },
   "raw_fp_flex": {
    "ok": true,
-   "count": 298,
+   "count": 299,
    "short": false,
    "minimum": 200
   }
