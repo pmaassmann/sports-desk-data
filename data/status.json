@@ -1,9 +1,9 @@
 {
- "runAt": "2026-11-12T08:39:54Z",
+ "runAt": "2026-11-13T08:37:41Z",
  "sources": {
   "raw_fc_dynasty": {
    "ok": true,
-   "count": 397,
+   "count": 396,
    "short": false,
    "minimum": 380
   },
@@ -21,7 +21,7 @@
   },
   "raw_sleeper_season": {
    "ok": true,
-   "count": 595,
+   "count": 596,
    "short": false,
    "minimum": 400
   },
