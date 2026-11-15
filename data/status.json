@@ -1,5 +1,5 @@
 {
- "runAt": "2026-11-14T08:25:25Z",
+ "runAt": "2026-11-15T08:28:06Z",
  "sources": {
   "raw_fc_dynasty": {
    "ok": true,
@@ -9,7 +9,7 @@
   },
   "raw_fc_redraft": {
    "ok": true,
-   "count": 196,
+   "count": 195,
    "short": false,
    "minimum": 150
   },
