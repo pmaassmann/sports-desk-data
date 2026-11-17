@@ -1,15 +1,15 @@
 {
- "runAt": "2026-11-16T10:04:47Z",
+ "runAt": "2026-11-17T08:40:19Z",
  "sources": {
   "raw_fc_dynasty": {
    "ok": true,
-   "count": 395,
+   "count": 396,
    "short": false,
    "minimum": 380
   },
   "raw_fc_redraft": {
    "ok": true,
-   "count": 196,
+   "count": 194,
    "short": false,
    "minimum": 150
   },
@@ -27,13 +27,13 @@
   },
   "raw_espn_ros": {
    "ok": true,
-   "count": 972,
+   "count": 971,
    "short": false,
    "minimum": 400
   },
   "raw_fp_flex": {
    "ok": true,
-   "count": 300,
+   "count": 295,
    "short": false,
    "minimum": 200
   }
