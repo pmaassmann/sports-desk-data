@@ -1,9 +1,9 @@
 {
- "runAt": "2026-11-21T08:28:29Z",
+ "runAt": "2026-11-22T08:28:52Z",
  "sources": {
   "raw_fc_dynasty": {
    "ok": true,
-   "count": 399,
+   "count": 398,
    "short": false,
    "minimum": 380
   },
