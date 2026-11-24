@@ -1,27 +1,26 @@
 {
- "runAt": "2026-11-23T08:59:02Z",
+ "runAt": "2026-11-24T08:45:16Z",
  "sources": {
   "raw_fc_dynasty": {
    "ok": true,
-   "count": 397,
+   "count": 396,
    "short": false,
    "minimum": 380
   },
   "raw_fc_redraft": {
    "ok": true,
-   "count": 192,
+   "count": 195,
    "short": false,
    "minimum": 150
   },
   "raw_ktc": {
-   "ok": true,
-   "count": 464,
-   "short": false,
-   "minimum": 400
+   "ok": false,
+   "error": "no player list on KTC page: HTTP 200, 360537 bytes, title='Dynasty Rankings - KeepTradeCut', mentions playersArray=True cloudflare; context: \" '2611240840-c46209834d090898';\\n    var playersArray = [];\\n    var ktcPoolReady = ktcFetchPlayerPool('dynasty', playersVersion,\\n        typeof filteredPlayersIds !== 'undefined' ? filteredPlayersIds :\"; ': null)\\n        .then(function (pool) { playersArray = pool; });\\n</script>\\n\\n<script>\\n    var historiesVersion = \\'261124-6dbc4173358df396\\';\\n</script>\\n\\n<main\\n    class=\"rankings-page  dashboard-page ale'",
+   "previousAsOf": "2026-11-23T08:59:02Z"
   },
   "raw_sleeper_season": {
    "ok": true,
-   "count": 610,
+   "count": 615,
    "short": false,
    "minimum": 400
   },
@@ -33,7 +32,7 @@
   },
   "raw_fp_flex": {
    "ok": true,
-   "count": 309,
+   "count": 295,
    "short": false,
    "minimum": 200
   }
