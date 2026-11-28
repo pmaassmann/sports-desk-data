@@ -1,21 +1,21 @@
 {
- "runAt": "2026-11-27T08:46:59Z",
+ "runAt": "2026-11-28T08:31:14Z",
  "sources": {
   "raw_fc_dynasty": {
    "ok": true,
-   "count": 397,
+   "count": 396,
    "short": false,
    "minimum": 380
   },
   "raw_fc_redraft": {
    "ok": true,
-   "count": 193,
+   "count": 194,
    "short": false,
    "minimum": 150
   },
   "raw_ktc": {
    "ok": false,
-   "error": "no player list on KTC page: HTTP 200, 355959 bytes, title='Dynasty Rankings - KeepTradeCut', mentions playersArray=True cloudflare; context: \" '2611270841-32b510489de91781';\\n    var playersArray = [];\\n    var ktcPoolReady = ktcFetchPlayerPool('dynasty', playersVersion,\\n        typeof filteredPlayersIds !== 'undefined' ? filteredPlayersIds :\"; ': null)\\n        .then(function (pool) { playersArray = pool; });\\n</script>\\n\\n<script>\\n    var historiesVersion = \\'261127-55e1a5e4ffe411f6\\';\\n</script>\\n\\n<main\\n    class=\"rankings-page  dashboard-page ale'",
+   "error": "no player list on KTC page: HTTP 200, 351871 bytes, title='Dynasty Rankings - KeepTradeCut', mentions playersArray=True cloudflare; context: \" '2611280830-9fd3b7ad7ba0f6c2';\\n    var playersArray = [];\\n    var ktcPoolReady = ktcFetchPlayerPool('dynasty', playersVersion,\\n        typeof filteredPlayersIds !== 'undefined' ? filteredPlayersIds :\"; ': null)\\n        .then(function (pool) { playersArray = pool; });\\n</script>\\n\\n<script>\\n    var historiesVersion = \\'261128-bb4d46e0fd8fb50f\\';\\n</script>\\n\\n<main\\n    class=\"rankings-page  dashboard-page ale'",
    "previousAsOf": "2026-11-23T08:59:02Z"
   },
   "raw_sleeper_season": {
